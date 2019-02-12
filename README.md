@@ -12,6 +12,7 @@
 
 ## インストール手順(Mac)
 1. HomeBrewをインストール
+1. brew install gawk
 1. brew install poppler
 1. xpdf用の日本語サポートファイルを用意
  1. xpdfのダウンロードサイトから日本語用のlanguage support files(xpdf-japanese.tar.gz)をダウンロード

@@ -17,6 +17,7 @@
  1. xpdfのダウンロードサイトから日本語用のlanguage support files(xpdf-japanese.tar.gz)をダウンロード
  1. 展開したファイルを /usr/local/share/xpdf/japanese に置く
  1. 以下の内容で /usr/local/etc/xpdfrc を作成する
+ ```
     textEncoding UTF-8
     cidToUnicode    Adobe-Japan1    /usr/local/share/xpdf/japanese/Adobe-Japan1.cidToUnicode
     unicodeMap  ISO-2022-JP /usr/local/share/xpdf/japanese/ISO-2022-JP.unicodeMap
@@ -24,3 +25,4 @@
     unicodeMap  Shift-JIS   /usr/local/share/xpdf/japanese/Shift-JIS.unicodeMap
     cMapDir     Adobe-Japan1    /usr/local/share/xpdf/japanese/CMap
     toUnicodeDir            /usr/local/share/xpdf/japanese/CMap
+ ```

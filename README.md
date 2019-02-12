@@ -27,3 +27,19 @@
     cMapDir     Adobe-Japan1    /usr/local/share/xpdf/japanese/CMap
     toUnicodeDir            /usr/local/share/xpdf/japanese/CMap
  ```
+
+## インストール手順(Windows)
+1. Git for Windowsをインストール(Gnu Bash for Windowsをインストール?)
+1. xpdf用の日本語サポートファイルを用意
+ 1. xpdfのダウンロードサイトから日本語用のlanguage support files(xpdf-japanese.tar.gz)をダウンロード
+ 1. C:\usr\local\share\xpdf\japanese を作成し、展開したファイルをその中に置く
+ 1. C:\Program Files\Git\mingw64\bin の中に以下の内容で xpdfrc を作成する
+ ```
+    textEncoding UTF-8
+    cidToUnicode    Adobe-Japan1    /usr/local/share/xpdf/japanese/Adobe-Japan1.cidToUnicode
+    unicodeMap  ISO-2022-JP /usr/local/share/xpdf/japanese/ISO-2022-JP.unicodeMap
+    unicodeMap  EUC-JP      /usr/local/share/xpdf/japanese/EUC-JP.unicodeMap
+    unicodeMap  Shift-JIS   /usr/local/share/xpdf/japanese/Shift-JIS.unicodeMap
+    cMapDir     Adobe-Japan1    /usr/local/share/xpdf/japanese/CMap
+    toUnicodeDir            /usr/local/share/xpdf/japanese/CMap
+ ```

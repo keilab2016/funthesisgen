@@ -5,16 +5,16 @@ REST=`echo $TARGET | sed -e 's,\.pdf,,g'`
 
 # extract first 3 pages
 pdftocairo -f 1 -l 3 -pdf $TARGET $REST.ab.pdf
-pdftotext -f 1 -l 3 -enc UTF-8 $TARGET $REST.txt
+pdftotext -f 1 -l 3 -cfg xpdfrc -enc UTF-8 $TARGET $REST.txt
 
 # extract first 2 pages if the above output contains "目次"
 grep -q "目次" $REST.txt && (
 pdftocairo -f 1 -l 2 -pdf $TARGET $REST.ab.pdf;
-pdftotext -f 1 -l 2 -enc UTF-8 $TARGET $REST.txt;
+pdftotext -f 1 -l 2 -cfg xpdfrc -enc UTF-8 $TARGET $REST.txt;
 )
 
 # generate csv from abstract text (without kana author name)
-gawk -e 'BEGIN{count=0}{\
+awk -e 'BEGIN{count=0}{\
 count++;\
 switch(count){\
 case 2:title=$0;break;\

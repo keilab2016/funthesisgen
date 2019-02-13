@@ -53,12 +53,16 @@ function roma2kana(s) {
 	gsub(/ryo/,"リョ",s);
 	gsub(/ryu/,"リュ",s);
 	gsub(/rya/,"リャ",s);
+	gsub(/rho/,"リョ",s);
+	gsub(/rhu/,"リュ",s);
+	gsub(/rha/,"リャ",s);
 
 	gsub(/syo/,"ショ",s);
 	gsub(/syu/,"シュ",s);
 	gsub(/sya/,"シャ",s);
 	gsub(/sho/,"ショ",s);
 	gsub(/shu/,"シュ",s);
+	gsub(/shi/,"シ",s);
 	gsub(/sha/,"シャ",s);
 	gsub(/cho/,"チョ",s);
 	gsub(/chu/,"チュ",s);
@@ -67,6 +71,9 @@ function roma2kana(s) {
 	gsub(/jyo/,"ジョ",s);
 	gsub(/jyu/,"ジュ",s);
 	gsub(/jya/,"ジャ",s);
+	gsub(/jho/,"ジョ",s);
+	gsub(/jhu/,"ジュ",s);
+	gsub(/jha/,"ジャ",s);
 	gsub(/jo/,"ジョ",s);
 	gsub(/je/,"ゼ",s);
 	gsub(/ju/,"ジュ",s);
@@ -78,6 +85,22 @@ function roma2kana(s) {
 	gsub(/zi/,"ジ",s);
 	gsub(/za/,"ザ",s);
 
+	gsub(/dyo/,"デョ",s);
+	gsub(/dyu/,"デュ",s);
+	gsub(/dya/,"デャ",s);
+	gsub(/dho/,"デョ",s);
+	gsub(/dhu/,"デュ",s);
+	gsub(/dha/,"デャ",s);
+	gsub(/do/,"ド",s);
+	gsub(/de/,"デ",s);
+	gsub(/du/,"ヅ",s);
+	gsub(/dhi/,"ディ",s);
+	gsub(/di/,"ヂ",s);
+	gsub(/da/,"ダ",s);
+
+	gsub(/gyo/,"ギョ",s);
+	gsub(/gyu/,"ギュ",s);
+	gsub(/gya/,"ギャ",s);
 	gsub(/go/,"ゴ",s);
 	gsub(/ge/,"ゲ",s);
 	gsub(/gu/,"グ",s);
@@ -129,7 +152,6 @@ function roma2kana(s) {
 	gsub(/ti/,"チ",s);
 	gsub(/ta/,"タ",s);
 
-	gsub(/shi/,"シ",s);
 	gsub(/so/,"ソ",s);
 	gsub(/se/,"セ",s);
 	gsub(/su/,"ス",s);

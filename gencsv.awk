@@ -9,6 +9,8 @@ BEGIN{
 	kauthor="";
 }
 /^ *$/{
+	gsub(/^ +/,"",buff);
+	gsub(/ +$/,"",buff);
 	if (buff~/卒業論文/ || buff~/BA Thesis/) {
 	} else if (title~/^$/) {
 		title=buff;
@@ -19,7 +21,6 @@ BEGIN{
 		id=substr(buff,RSTART,RLENGTH);
 	} else if (buff~/提出日/ || buff~/^ *$/) {
 	} else if (etitle~/^$/) {
-		gsub(/by$/,"",buff);
 		etitle=buff;
 	} else if (etitle!~/^$/ && eauthor~/^$/) {
 		eauthor=buff;
@@ -27,6 +28,9 @@ BEGIN{
 		print buff;
 	}
 	buff="";
+}
+/^ *by *$/{
+	next;
 }
 {
 	gsub(/^ +/,"");
@@ -39,7 +43,7 @@ BEGIN{
 		eteacher=$0;
 		nextfile;
 	} else {
-		buff=buff $0;
+		buff=buff " " $0;
 	}
 }
 END{

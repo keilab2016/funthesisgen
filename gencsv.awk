@@ -18,9 +18,9 @@ BEGIN{
 		if (debug) print "title is " title "\n";
 	} else if (title!~/^$/ && author~/^$/) {
 		author=buff;
-		gsub(/  +/,"",author);
+		gsub(/  +/," ",author);
 		if (debug) print "author is " author "\n";
-	} else if (buff~/.*学科 *([0-9]+)/) {
+	} else if (buff~/.*学科 *[bg]?([0-9]+)/) {
 		match(buff,/([0-9]+)/);
 		id=substr(buff,RSTART,RLENGTH);
 	} else if (buff~/提出日/ || buff~/^ *$/) {
@@ -43,9 +43,11 @@ BEGIN{
 	gsub(/ +$/,"");
 	if ($0~/指導教員/) {
 		gsub(/ *指導教員 */,"");
+		gsub(/  +/," ");
 		teacher=$0;
 	} else if ($0~/Advisor: (.*)/) {
 		gsub(/ *Advisor: /,"");
+		gsub(/.*Prof\. /,"");
 		eteacher=$0;
 		nextfile;
 	} else if ($0~/Supervisor (.*)/) {
@@ -87,6 +89,7 @@ function roma2kana(s) {
 	gsub(/sha/,"シャ",s);
 	gsub(/cho/,"チョ",s);
 	gsub(/chu/,"チュ",s);
+	gsub(/chi/,"チ",s);
 	gsub(/cha/,"チャ",s);
 
 	gsub(/jyo/,"ジョ",s);
@@ -165,7 +168,6 @@ function roma2kana(s) {
 	gsub(/ni/,"ニ",s);
 	gsub(/na/,"ナ",s);
 
-	gsub(/chi/,"チ",s);
 	gsub(/tsu/,"ツ",s);
 	gsub(/to/,"ト",s);
 	gsub(/te/,"テ",s);

@@ -1,4 +1,5 @@
 BEGIN{
+	debug=0;
 	title="";
 	author="";
 	id="";
@@ -14,17 +15,21 @@ BEGIN{
 	} else if (buff~/修士論文/ || buff~/Master.*s Thesis/ || buff~/研究科/ || buff~/ Thesis at /) {
 	} else if (title~/^$/) {
 		title=buff;
+		if (debug) print "title is " title "\n";
 	} else if (title!~/^$/ && author~/^$/) {
 		author=buff;
 		gsub(/  +/,"",author);
+		if (debug) print "author is " author "\n";
 	} else if (buff~/.*学科 *([0-9]+)/) {
 		match(buff,/([0-9]+)/);
 		id=substr(buff,RSTART,RLENGTH);
 	} else if (buff~/提出日/ || buff~/^ *$/) {
 	} else if (etitle~/^$/) {
 		etitle=buff;
+		if (debug) print "etitle is " etitle "\n";
 	} else if (etitle!~/^$/ && eauthor~/^$/) {
 		eauthor=buff;
+		if (debug) print "eauthor is " eauthor "\n";
 	} else {
 		print buff;
 	}

@@ -15,7 +15,7 @@
 1. xpdf用の日本語サポートファイルを用意
     1. xpdfのダウンロードサイトから日本語用のlanguage support files(xpdf-japanese.tar.gz)をダウンロード
     1. 展開したファイルを /usr/local/share/xpdf/japanese に置く
-    1. 以下の内容で /usr/local/etc/xpdfrc を作成する
+    1. 以下の内容で /usr/local/etc/xpdfrc を作成する (もしくは本パッケージに含まれる xpdfrc を /usr/local/etc にコピーする)
  ```
     textEncoding UTF-8
     cidToUnicode    Adobe-Japan1    /usr/local/share/xpdf/japanese/Adobe-Japan1.cidToUnicode
@@ -31,7 +31,7 @@
 1. xpdf用の日本語サポートファイルを用意
     1. xpdfのダウンロードサイトから日本語用のlanguage support files(xpdf-japanese.tar.gz)をダウンロード
     1. C:\usr\local\share\xpdf\japanese を作成し、展開したファイルをその中に置く
-    1. C:\Program Files\Git\mingw64\bin の中に以下の内容で xpdfrc を作成する
+    1. C:\Program Files\Git\mingw64\bin の中に以下の内容で xpdfrc を作成する (もしくは本パッケージに含まれる xpdfrc を C:\Program Files\Git\mingw64\bin にコピーする)
  ```
     textEncoding UTF-8
     cidToUnicode    Adobe-Japan1    /usr/local/share/xpdf/japanese/Adobe-Japan1.cidToUnicode

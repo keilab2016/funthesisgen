@@ -11,10 +11,12 @@ BEGIN{
 	gsub(/^ +/,"",buff);
 	gsub(/ +$/,"",buff);
 	if (buff~/卒業論文/ || buff~/BA Thesis/) {
+	} else if (buff~/修士論文/ || buff~/Master.*s Thesis/ || buff~/研究科/ || buff~/ Thesis at /) {
 	} else if (title~/^$/) {
 		title=buff;
 	} else if (title!~/^$/ && author~/^$/) {
 		author=buff;
+		gsub(/  +/,"",author);
 	} else if (buff~/.*学科 *([0-9]+)/) {
 		match(buff,/([0-9]+)/);
 		id=substr(buff,RSTART,RLENGTH);
@@ -39,6 +41,11 @@ BEGIN{
 		teacher=$0;
 	} else if ($0~/Advisor: (.*)/) {
 		gsub(/ *Advisor: /,"");
+		eteacher=$0;
+		nextfile;
+	} else if ($0~/Supervisor (.*)/) {
+		gsub(/ *Supervisor /,"");
+		gsub(/.*Prof\. /,"");
 		eteacher=$0;
 		nextfile;
 	} else {

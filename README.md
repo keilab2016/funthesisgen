@@ -27,7 +27,7 @@
  ```
 
 ### インストール手順(Windows)
-1. Git for Windowsをインストール(Gnu Bash for Windowsをインストール?)
+1. Git for Windowsをインストール
 1. xpdf用の日本語サポートファイルを用意
     1. xpdfのダウンロードサイトから日本語用のlanguage support files(xpdf-japanese.tar.gz)をダウンロード
     1. C:\usr\local\share\xpdf\japanese を作成し、展開したファイルをその中に置く
@@ -44,6 +44,6 @@
 
 ### 使用方法
 1. 卒論本体のPDFファイルをb???????.pdf形式のファイル名にして、extract.sh および gencsv.awk と同じフォルダに置く
-1. ターミナル(Windowsの場合はGnu Bash)で、 `./extract.sh` を実行
+1. ターミナル(Windowsの場合はGit Bash)で、 `./extract.sh` を実行
 
 ## 提出ファイルチェックツール

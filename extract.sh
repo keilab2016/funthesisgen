@@ -14,6 +14,6 @@ pdftotext -f 1 -l 2 -layout $TARGET $REST.txt;
 )
 
 # generate csv from abstract text (without kana author name)
-gawk -f gencsv.awk $REST.txt > $REST.csv
+awk -f gencsv.awk $REST.txt > $REST.csv
 
 exit 0

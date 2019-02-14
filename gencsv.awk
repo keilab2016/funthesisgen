@@ -53,6 +53,11 @@ BEGIN{
 	}
 }
 END{
+	if (id~/^$/) {
+		id=FILENAME;
+		gsub(/^[bg]/,"",id);
+		gsub(/\.txt$/,"",id);
+	}
 	printf("%s,%s,%s,%s,%s,%s,%s,%s\n",id,author,eauthor,swapname(roma2kana(tolower(eauthor))),teacher,eteacher,title,etitle);
 }
 function swapname(s) {

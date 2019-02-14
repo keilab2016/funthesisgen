@@ -18,7 +18,7 @@ BEGIN{
 		if (debug) print "title is " title "\n";
 	} else if (title!~/^$/ && author~/^$/) {
 		author=buff;
-		gsub(/  +/,"",author);
+		gsub(/  +/," ",author);
 		if (debug) print "author is " author "\n";
 	} else if (buff~/.*学科 *([0-9]+)/) {
 		match(buff,/([0-9]+)/);
@@ -43,10 +43,12 @@ BEGIN{
 	gsub(/ +$/,"");
 	if ($0~/指導教員/) {
 		gsub(/ *指導教員 */,"");
+		gsub(/  +/," ");
 		teacher=$0;
 	} else if ($0~/Advisor: (.*)/) {
 		gsub(/ *Advisor: /,"");
 		eteacher=$0;
+		gsub(/.*Prof\. /,"");
 		nextfile;
 	} else if ($0~/Supervisor (.*)/) {
 		gsub(/ *Supervisor /,"");

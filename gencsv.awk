@@ -46,7 +46,11 @@ BEGIN{
 	}
 }
 END{
-	printf("%s,%s,%s,%s,%s,%s,%s,%s\n",id,author,eauthor,roma2kana(tolower(eauthor)),teacher,eteacher,title,etitle);
+	printf("%s,%s,%s,%s,%s,%s,%s,%s\n",id,author,eauthor,swapname(roma2kana(tolower(eauthor))),teacher,eteacher,title,etitle);
+}
+function swapname(s) {
+	split(s, n);
+	return n[2] " " n[1];
 }
 function roma2kana(s) {
 

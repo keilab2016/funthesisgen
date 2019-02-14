@@ -1,5 +1,5 @@
 #!/bin/sh
-for TARGET in b???????.pdf; do
+for TARGET in [bg]???????.pdf; do
   echo $TARGET
   REST=`echo $TARGET | sed -e 's,\.pdf,,g'`
 

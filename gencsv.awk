@@ -89,6 +89,7 @@ function roma2kana(s) {
 	gsub(/sha/,"シャ",s);
 	gsub(/cho/,"チョ",s);
 	gsub(/chu/,"チュ",s);
+	gsub(/chi/,"チ",s);
 	gsub(/cha/,"チャ",s);
 
 	gsub(/jyo/,"ジョ",s);
@@ -167,7 +168,6 @@ function roma2kana(s) {
 	gsub(/ni/,"ニ",s);
 	gsub(/na/,"ナ",s);
 
-	gsub(/chi/,"チ",s);
 	gsub(/tsu/,"ツ",s);
 	gsub(/to/,"ト",s);
 	gsub(/te/,"テ",s);

@@ -16,13 +16,17 @@ BEGIN{
 	} else if (title~/^$/) {
 		title=buff;
 		if (debug) print "title is " title "\n";
+	} else if (buff~/.*学科 *[bg]?([0-9]+)/) {
+		match(buff,/([0-9]+)/);
+		id=substr(buff,RSTART,RLENGTH);
+	} else if (buff~/.*コース *[bg]?([0-9]+)/) {
+		match(buff,/([0-9]+)/);
+		id=substr(buff,RSTART,RLENGTH);
+	} else if (buff~/学科/ || buff~/大学/) {
 	} else if (title!~/^$/ && author~/^$/) {
 		author=buff;
 		gsub(/  +/," ",author);
 		if (debug) print "author is " author "\n";
-	} else if (buff~/.*学科 *[bg]?([0-9]+)/) {
-		match(buff,/([0-9]+)/);
-		id=substr(buff,RSTART,RLENGTH);
 	} else if (buff~/提出日/ || buff~/^ *$/) {
 	} else if (etitle~/^$/) {
 		etitle=buff;
@@ -45,15 +49,18 @@ BEGIN{
 		gsub(/ *指導教員 */,"");
 		gsub(/  +/," ");
 		teacher=$0;
+		if (debug) print "teacher is " teacher "\n";
 	} else if ($0~/Advisor: (.*)/) {
-		gsub(/ *Advisor: /,"");
+		gsub(/ *Advisor: +/,"");
 		gsub(/.*Prof\. /,"");
 		eteacher=$0;
+		if (debug) print "eteacher is " eteacher "\n";
 		nextfile;
-	} else if ($0~/Supervisor (.*)/) {
-		gsub(/ *Supervisor /,"");
+	} else if ($0~/Supervisor[:]? (.*)/) {
+		gsub(/ *Supervisor[:]? +/,"");
 		gsub(/.*Prof\. /,"");
 		eteacher=$0;
+		if (debug) print "eteacher is " eteacher "\n";
 		nextfile;
 	} else {
 		buff=buff " " $0;
